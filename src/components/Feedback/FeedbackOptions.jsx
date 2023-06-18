@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function FeedbackOptions({ options, onLeaveFeedback }) {
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   function ucFirst(string) {
     return string[0].toUpperCase() + string.slice(1);
   }
@@ -11,7 +11,7 @@ function FeedbackOptions({ options, onLeaveFeedback }) {
       <div className="feedback__btn--add">
         <h1 className="feedback__btn--title">Please leave feedback</h1>
         <ul className="feedback__btn--list">
-          {options.map((elm) => (
+          {options.map(elm => (
             <li className="feedback__btn--item" key={elm}>
               <button
                 className="feedback__btn--btn"
@@ -25,12 +25,13 @@ function FeedbackOptions({ options, onLeaveFeedback }) {
       </div>
     </div>
   );
-}
+};
 
 FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onLeaveFeedback: PropTypes.func.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired
 };
 
 export default FeedbackOptions;
+
 

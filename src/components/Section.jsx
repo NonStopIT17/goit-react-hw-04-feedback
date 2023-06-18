@@ -1,37 +1,23 @@
-import React, { Component } from 'react';
-import Statistics from './Statistics';
+import React from 'react';
 import FeedbackOptions from './Feedback/FeedbackOptions';
+import Statistics from './Statistics';
 import './Feedback/Feedback.modyle.css';
 
-class Section extends Component {
-  render() {
-    const {
-      good,
-      neutral,
-      bad,
-      totalFeedback,
-      positiveFeedbackPercentage,
-      onLeaveFeedback
-    } = this.props;
 
-    return (
-      <div>
-        <FeedbackOptions
-          key="optionsFeeb"
-          onLeaveFeedback={onLeaveFeedback}
-          options={['good', 'neutral', 'bad']}
-        />
-        <Statistics
-          key="statistics"
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={totalFeedback}
-          positivePercentage={positiveFeedbackPercentage}
-        />
-      </div>
-    );
-  }
-}
+const Section = ({ feedback, totalFeedback, positiveFeedbackPercentage, onLeaveFeedback }) => {
+  return (
+    <div>
+      <FeedbackOptions
+        options={Object.keys(feedback)}
+        onLeaveFeedback={onLeaveFeedback}
+      />
+      <Statistics
+        feedback={feedback}
+        total={totalFeedback}
+        positivePercentage={positiveFeedbackPercentage}
+      />
+    </div>
+  );
+};
 
 export default Section;
