@@ -3,16 +3,17 @@ import FeedbackOptions from './Feedback/FeedbackOptions';
 import Statistics from './Statistics';
 import './Feedback/Feedback.modyle.css';
 
-
-const Section = ({ feedback, totalFeedback, positiveFeedbackPercentage, onLeaveFeedback }) => {
+const Section = ({ good, neutral, bad, totalFeedback, positiveFeedbackPercentage, onLeaveFeedback }) => {
   return (
     <div>
       <FeedbackOptions
-        options={Object.keys(feedback)}
+        options={['good', 'neutral', 'bad']}
         onLeaveFeedback={onLeaveFeedback}
       />
       <Statistics
-        feedback={feedback}
+        good={good}
+        neutral={neutral}
+        bad={bad}
         total={totalFeedback}
         positivePercentage={positiveFeedbackPercentage}
       />
